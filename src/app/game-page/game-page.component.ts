@@ -44,13 +44,6 @@ export class GamePageComponent implements OnInit {
       this.typedMessage = '';
     }
   }
-
-  // sendMessage(): void {
-  //   this.MessageServiceService.sendMessage('hello');
-  // }
-  // clearMessages(): void {
-  //   this.MessageServiceService.clearMessages();
-  // }
   ngOnInit(): void {}
 
   setMove(index: number): void {
