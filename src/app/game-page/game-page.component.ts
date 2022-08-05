@@ -14,9 +14,6 @@ export interface Tile {
   styleUrls: ['./game-page.component.scss'],
 })
 export class GamePageComponent implements OnInit {
-  typedMessage: string = '';
-  messages: any;
-  message: any = [];
   isHumanTurn: boolean = true;
   isHumanWinner: boolean = false;
   isComputerWinner: boolean = false;
@@ -35,15 +32,7 @@ export class GamePageComponent implements OnInit {
   ];
 
   constructor(private MessageServiceService: MessageServiceService) {}
-  postMessage() {
-    if (this.typedMessage) {
-      this.MessageServiceService.postMessage({
-        msg: this.typedMessage,
-        userName: 'nobody',
-      });
-      this.typedMessage = '';
-    }
-  }
+
   ngOnInit(): void {}
 
   setMove(index: number): void {

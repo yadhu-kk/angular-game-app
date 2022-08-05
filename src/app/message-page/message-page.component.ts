@@ -8,15 +8,23 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./message-page.component.scss'],
 })
 export class MessagePageComponent implements OnInit {
+  typedMessage: string = '';
+
   messages: any;
 
   constructor(private MessageServiceService: MessageServiceService) {}
-
-  ngOnInit(): void {
-    this.MessageServiceService.messages.subscribe({
-      next: (value) => {
-        this.messages = value;
-      },
-    });
+  postMessage() {
+    if (this.typedMessage) {
+      this.MessageServiceService.postMessage({
+        msg: this.typedMessage,
+        userName: 'nobody',
+      });
+      this.typedMessage = '';
+    }
   }
+  clearMessage(): void {
+    this.MessageServiceService.clearMessage(this.messages);
+  }
+
+  ngOnInit(): void {}
 }

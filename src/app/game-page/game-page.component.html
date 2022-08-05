@@ -13,25 +13,13 @@
       </mat-grid-tile>
     </mat-grid-list>
 
-    <div *ngIf="isHumanWinner">you are winner!!!</div>
+    <div class="winner" *ngIf="isHumanWinner">you are winner!!!</div>
     <div *ngIf="isComputerWinner">Computer won!!!</div>
   </div>
-  <div class="abcd">
-    <div class="chat-popup">
-      <div class="form-container">
-        <h1>Chat</h1>
 
-        <label for="msg"><b>Message</b></label>
-        <textarea
-          placeholder="Type message.."
-          name="msg"
-          [(ngModel)]="typedMessage"
-        ></textarea>
-
-        <button class="btn" (click)="postMessage()">Send</button>
-        <button type="button" class="btn cancel">Cancel</button>
-      </div>
-      <div><app-message-page></app-message-page></div>
+  <div class="chat-popup">
+    <div class="form-container">
+      <app-message-page></app-message-page>
     </div>
   </div>
 </div>
