@@ -1,0 +1,25 @@
+<div class="header"><h1>Tic Tac Toe</h1></div>
+<div class="ban">
+  <div class="abc">
+    <mat-grid-list cols="3" rowHeight="1:1">
+      <mat-grid-tile
+        *ngFor="let tile of tiles; let i = index"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color"
+        (click)="setMove(i)"
+      >
+        {{ tile.text }}
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <div class="winner" *ngIf="isHumanWinner">you are winner!!!</div>
+    <div *ngIf="isComputerWinner">Computer won!!!</div>
+  </div>
+
+  <div class="chat-popup">
+    <div class="form-container">
+      <app-message-page></app-message-page>
+    </div>
+  </div>
+</div>
